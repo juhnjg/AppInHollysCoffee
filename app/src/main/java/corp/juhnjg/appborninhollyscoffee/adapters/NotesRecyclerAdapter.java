@@ -15,8 +15,6 @@ import corp.juhnjg.appborninhollyscoffee.models.Note;
 
 public class NotesRecyclerAdapter extends RecyclerView.Adapter<NotesRecyclerAdapter.ViewHolder>{
 
-    private static final String TAG = "NotesRecyclerAdapter";
-
     private ArrayList<Note> mNotes;
 
     public NotesRecyclerAdapter(ArrayList<Note> notes) {
