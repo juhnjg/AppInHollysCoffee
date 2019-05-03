@@ -1,5 +1,6 @@
 package corp.juhnjg.appborninhollyscoffee;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -63,6 +64,10 @@ public class MainActivity extends AppCompatActivity implements NotesRecyclerAdap
     @Override
     public void onNoteClick(int position) {
         Log.d(TAG, "onNoteClick: clicked" + position);
+
+        Intent intent = new Intent(this, NoteActivity.class);
+        intent.putExtra("selected note", mNotes.get(position));
+        startActivity(intent);
 
     }
 }
