@@ -7,6 +7,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.widget.Toast;
 
 
 import java.util.ArrayList;
@@ -66,7 +67,7 @@ public class MainActivity extends AppCompatActivity implements NotesRecyclerAdap
         Log.d(TAG, "onNoteClick: clicked" + position);
 
         Intent intent = new Intent(this, NoteActivity.class);
-        intent.putExtra("selected note", mNotes.get(position));
+        intent.putExtra("selected_note", mNotes.get(position));
         startActivity(intent);
 
     }
