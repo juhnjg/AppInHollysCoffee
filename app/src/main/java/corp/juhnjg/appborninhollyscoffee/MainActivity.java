@@ -7,7 +7,8 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
-import android.widget.Toast;
+import android.view.View;
+
 
 
 import java.util.ArrayList;
@@ -16,7 +17,8 @@ import corp.juhnjg.appborninhollyscoffee.adapters.NotesRecyclerAdapter;
 import corp.juhnjg.appborninhollyscoffee.models.Note;
 import corp.juhnjg.appborninhollyscoffee.util.VerticalSpacingItemDecorator;
 
-public class MainActivity extends AppCompatActivity implements NotesRecyclerAdapter.OnNoteListener {
+public class MainActivity extends AppCompatActivity implements NotesRecyclerAdapter.OnNoteListener,
+        View.OnClickListener{
 
     private static final String TAG = "MainActivity";
 
@@ -32,6 +34,7 @@ public class MainActivity extends AppCompatActivity implements NotesRecyclerAdap
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         mRecyclerView = findViewById(R.id.recyclerView);
+        findViewById(R.id.fab).setOnClickListener(this);
 
         initRecyclerView();
         insertFakeNotes();
@@ -70,5 +73,11 @@ public class MainActivity extends AppCompatActivity implements NotesRecyclerAdap
         intent.putExtra("selected_note", mNotes.get(position));
         startActivity(intent);
 
+    }
+
+    @Override
+    public void onClick(View v) {
+        Intent intent = new Intent(this, NoteActivity.class);
+        startActivity(intent);
     }
 }
